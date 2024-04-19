@@ -16,17 +16,13 @@ class Invader {
  public void dibujar(){
     imageMode(CENTER);
     image(imagen,posicion.x,posicion.y,80,80);
-    
-     if (posicion.x + imagen.width >= width || posicion.x - imagen.width <= 0) {
-      velocidad.x *= -1;
-    }
   }
   
  public void mover(){
    if(this.posicion.x<=width){
      this.posicion.x+=this.velocidad.y;
-   }else{
-     this.posicion.x=0;
-    }
+   }else if(posicion.x <= 0 || posicion.x >= width - imagen.width){
+      velocidad.x *=-1;
+    }         
   }
 }
